@@ -184,8 +184,21 @@ const theme = createTheme(
     quaternary: '#3580C2'
   },
   {
-    primary: 'Montserrat',
-    secondary: 'Helvetica'
+    primary: {
+      name: 'Roboto',
+      googleFont: true,
+      styles: ['400', '700i']
+    },
+    heading: {
+      name: 'Space Mono',
+      googleFont: true,
+      styles: ['400', '700i']
+    },
+    cssHeading: {
+      name: 'Rubik Mono One',
+      googleFont: true,
+      styles: ['400', '700i']
+    }
   }
 );
 
@@ -257,20 +270,20 @@ export default class Presentation extends React.Component {
       >
         <Slide bgColor="primary">
           <Image src={images.logo} width={400} />
-          <Heading size={1} fit lineHeight={1} textColor="secondary">
+          <Heading size={1} fit lineHeight={1} textColor="secondary" textFont="heading">
             JSConf Budapest 2019
           </Heading>
         </Slide>
 
         <Slide>
           <Mesh rotate={-100} top={'-60%'} right={'-30%'} />
-          <Heading size={1} fit lineHeight={1} textColor="tertiary">
+          <Heading size={1} fit lineHeight={1} textColor="tertiary" textFont="heading">
             26-27 September <br />2019
           </Heading>
         </Slide>
 
         <Slide transition={['fade']} bgColor="secondary">
-          <Heading size={1} textColor="primary">
+          <Heading size={1} textColor="primary" textFont="heading">
             Akvarium Klub
           </Heading>
         </Slide>
@@ -281,7 +294,9 @@ export default class Presentation extends React.Component {
             Bringing You
           </Heading>
 
-          <List>
+          <List style={{
+            textAlign: 'center'
+          }}>
             <ListItem bulletStyle="🎤">20 speakers</ListItem>
             <ListItem bulletStyle="🛠">Free Workshops!</ListItem>
             <ListItem bulletStyle="👷‍♀️">HackerLounge</ListItem>
@@ -292,7 +307,7 @@ export default class Presentation extends React.Component {
 
         <Slide textColor="tertiary">
           <Mesh rotate={-240} bottom={'-60%'} left={'-30%'} />
-          <Heading size={1} textColor="secondary" caps>
+          <Heading size={1} textColor="secondary" caps textFont="heading">
             Speakers & topics
           </Heading>
         </Slide>
@@ -341,10 +356,26 @@ export default class Presentation extends React.Component {
           }}>
             10% discount
           </Heading>
-          <Heading size={1} caps textColor="primary">
+          <Heading size={1} caps textColor="primary" textFont="heading">
             { getDiscountCode() }
           </Heading>
         </Slide>
+
+
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={1} textColor="primary" textFont="heading">
+            There's more!
+          </Heading>
+        </Slide>
+
+
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={1} textColor="tertiary" textFont="cssHeading">
+            CSSConf Budapest 2019
+          </Heading>
+        </Slide>
+
+
       </Deck>
     );
   }
