@@ -1,4 +1,4 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+//const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 /* eslint-disable */
 
 var path = require("path");
@@ -90,6 +90,6 @@ module.exports = {
   optimization: {
     minimize: true,
 
-    minimizer: [new UglifyJsPlugin()]
+    //minimizer: [new UglifyJsPlugin()]
   }
 };
