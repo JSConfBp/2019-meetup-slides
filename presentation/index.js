@@ -180,7 +180,7 @@ const cssSpeakers = [
     name: 'Yu Ling Cheng',
     title: 'Building better products faster: DevUx is the new DevOps',
     topics: '',
-    image: require('../assets/speakers/shelley_vohr.png'),
+    image: require('../assets/speakers/yu_ling_cheng.jpg'),
   },
   {
     name: 'Mike Riethmuller',
