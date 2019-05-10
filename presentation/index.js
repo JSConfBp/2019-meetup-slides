@@ -39,13 +39,13 @@ const jsSpeakers = [
     name: 'Charlie Gerard',
     title: 'Weaving the web - Programming textile-based interactions in JavaScript',
     topics: '',
-    image: require('../assets/speakers/charlie_gerard.png'),
+    image: require('../assets/speakers/charlie_gerard.jpg'),
   },
   {
     name: 'Rubén Sospedra',
     title: 'Mastering UIs with Finite State Machines',
     topics: '',
-    image: require('../assets/speakers/ruben_sospedra.png'),
+    image: require('../assets/speakers/ruben_sospedra.jpg'),
   },
   {
     name: 'Braden Moore',
@@ -57,7 +57,7 @@ const jsSpeakers = [
     name: 'Mauricio Palma',
     title: 'Accessibility vs latest Web APIs. Can’t we just get along?',
     topics: '',
-    image: require('../assets/speakers/mauricio_palma.png')
+    image: require('../assets/speakers/mauricio_palma.jpg')
   },
   {
     name: 'Isa Silveira',
@@ -111,7 +111,7 @@ const jsSpeakers = [
     name: 'Shelley Vohr',
     title: 'API Modernization: Building Bridges As You Cross Them',
     topics: '',
-    image: require('../assets/speakers/shelley_vohr.png'),
+    image: require('../assets/speakers/shelley_vohr.jpg'),
   },
   {
     name: 'Vitalii Bobrov',
@@ -147,7 +147,7 @@ const jsSpeakers = [
     name: 'Balázs Korossy-Khayll',
     title: 'Testing presentation components visually',
     topics: '',
-    image: require('../assets/speakers/balazs_korossy_khayll.png'),
+    image: require('../assets/speakers/balazs_korossy_khayll.jpg'),
   }
 ]
 
@@ -204,7 +204,7 @@ const cssSpeakers = [
     name: 'Alan Stearns',
     title: 'Getting Browser Bugs Fixed',
     topics: '',
-    image: require('../assets/speakers/alan_stearns.png'),
+    image: require('../assets/speakers/alan_stearns.jpg'),
   },
 ]
 
