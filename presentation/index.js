@@ -22,6 +22,10 @@ import {
   Text
 } from 'spectacle';
 
+import Mesh from './mesh';
+import Capsule from './capsule';
+import SpeakerJS from './js_speaker';
+import SpeakerCSS from './css_speaker';
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -30,7 +34,7 @@ const images = {
   logo: require('../assets/JSConf_Budapest_large-logo.svg'),
 };
 
-const speakers = [
+const jsSpeakers = [
   {
     name: 'Charlie Gerard',
     title: 'Weaving the web - Programming textile-based interactions in JavaScript',
@@ -147,18 +151,78 @@ const speakers = [
   }
 ]
 
+const cssSpeakers = [
+  {
+    name: 'David Khourshid',
+    title: 'Crafting Stateful Styles with State Machines',
+    topics: '',
+    image: require('../assets/speakers/david_khourshid.jpg'),
+  },
+  {
+    name: 'Jeremy Wagner',
+    title: 'The Weird (yet Practical) World of CSS Paint Worklets',
+    topics: '',
+    image: require('../assets/speakers/jeremy_wagner.jpg'),
+  },
+  {
+    name: 'Giulia Cardieri',
+    title: 'CSS Games and Drawings in the real world: useful or just fun?',
+    topics: '',
+    image: require('../assets/speakers/giulia_cardieri.jpg'),
+  },
+  {
+    name: 'Damien Senger',
+    title: 'Variable fonts & readability: the rising of custom reading experiences',
+    topics: '',
+    image: require('../assets/speakers/damien_senger.jpg'),
+  },
+  {
+    name: 'Yu Ling Cheng',
+    title: 'Building better products faster: DevUx is the new DevOps',
+    topics: '',
+    image: require('../assets/speakers/shelley_vohr.png'),
+  },
+  {
+    name: 'Mike Riethmuller',
+    title: 'CSS Architecture for Modern Web Applications',
+    topics: '',
+    image: require('../assets/speakers/mike_riethmuller.jpg'),
+  },
+  {
+    name: 'Xavier Cazalot',
+    title: 'The Path to SVG Animations',
+    topics: '',
+    image: require('../assets/speakers/xavier_cazalot.jpg'),
+  },
+  {
+    name: 'Kathrin Holzmann',
+    title: 'CSS in JS - beware the Hype!',
+    topics: '',
+    image: require('../assets/speakers/kathrin_holzmann.jpg'),
+  },
+  {
+    name: 'Alan Stearns',
+    title: 'Getting Browser Bugs Fixed',
+    topics: '',
+    image: require('../assets/speakers/alan_stearns.png'),
+  },
+]
 
-const speakerGroups = speakers
-  .sort(() => (0.5 - Math.random()))
+const chunkSpeakers = (array, num = 2) => {
+  return array.sort(() => (0.5 - Math.random()))
   .reduce((arr, speaker, index) => {
-    if (index % 2 === 0) {
+    if (index % num === 0) {
       arr.push([])
     }
     arr[arr.length - 1].push(speaker);
     return arr
   },[])
+}
 
-speakerGroups[speakerGroups.length - 1].push({
+const jsSpeakerGroups = chunkSpeakers(jsSpeakers);
+const cssSpeakersGroups = chunkSpeakers(cssSpeakers, 3);
+
+jsSpeakerGroups[jsSpeakerGroups.length - 1].push({
   name: 'Surprise Speaker',
   title: 'Soon to be announced!',
   topics: '?',
@@ -181,7 +245,8 @@ const theme = createTheme(
     primary: 'white',
     secondary: '#db3127',
     tertiary: '#0d171f',
-    quaternary: '#3580C2'
+    quaternary: '#3580C2',
+    cssecondary: '#F05D5E',
   },
   {
     primary: {
@@ -197,68 +262,15 @@ const theme = createTheme(
     cssHeading: {
       name: 'Rubik Mono One',
       googleFont: true,
-      styles: ['400', '700i']
-    }
+      styles: ['400']
+    },
+    cssSecondary: {
+      name: 'Lora',
+      googleFont: true,
+      styles: ['400']
+    },
   }
 );
-
-const Speaker = ({ name, title, image, align }) => (<div style={{
-  display: 'flex',
-  flexDirection: (align === 'right') ? `row` : 'row-reverse',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  position: 'relative',
-  maxHeight: '30vh',
-  margin: '4rem 0',
-  top: '-6rem'
-}}>
-  <div style={{
-    textAlign: 'left',
-    flexGrow: 2,
-    padding: '0 4rem',
-    maxWidth: '70%',
-  }}>
-    <Heading size={5} textColor="secondary" caps>
-      { name }
-    </Heading>
-    <Text>
-      { title }
-    </Text>
-  </div>
-  <div style={{
-    flexGrow: 1,
-    overflow: 'hidden',
-    borderRadius: '50%',
-    maxWidth: '30vh',
-    maxHeight: '30vh',
-  }}>
-    <Image src={image} style={{
-      margin: 0,
-      width: '100%',
-      height: '100%',
-    }}/>
-  </div>
-</div>)
-
-const Mesh = ({
-  rotate = -100,
-  top,
-  bottom,
-  left,
-  right,
-}) => (<div style={{
-  position: 'absolute',
-  ...top && { top },
-  ...bottom && { bottom },
-  ...left && { left },
-  ...right && { right },
-  transform: `rotate(${rotate}deg)`,
-}}><Image src={images.mesh} /></div>);
-
-const BgMesh = styled(Mesh) `
-  position: absolute;
-  top: 0;
-`;
 
 export default class Presentation extends React.Component {
   render() {
@@ -312,7 +324,7 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        {speakerGroups.map((group, index) => {
+        {jsSpeakerGroups.map((group, index) => {
           const align = index % 2 === 0 ?  'left' : 'right';
           const meshProps = {
             rotate: index * -30,
@@ -338,7 +350,7 @@ export default class Presentation extends React.Component {
 
               const al = i % 2 === 0 ? (align === 'left' ?'left' : 'right') :(align === 'left' ?'right' : 'left')
 
-              return (<Speaker
+              return (<SpeakerJS
                 key={`speakergroup-${i}`}
                 align={al}
                 name={name}
@@ -369,12 +381,78 @@ export default class Presentation extends React.Component {
         </Slide>
 
 
-        <Slide transition={['fade']} bgColor="primary">
+        <Slide transition={['fade']} bgColor="primary" style={{
+        background: 'linear-gradient(lavender,azure)'
+  }}>
+          <Capsule />
           <Heading size={1} textColor="tertiary" textFont="cssHeading">
             CSSConf Budapest 2019
           </Heading>
         </Slide>
 
+
+{cssSpeakersGroups.map((group, index) => {
+  const align = index % 2 === 0 ?  'left' : 'right';
+  const meshProps = {
+    rotate: index * -30,
+  };
+
+  if (align === 'left') {
+    meshProps.bottom = '0%';
+    meshProps.left = '-10%';
+  } else {
+    meshProps.bottom = '0%';
+    meshProps.right = '-10%';
+  }
+
+  return (<Slide key={`speakergroup-${index}`} style={{
+    background: 'linear-gradient(lavender,azure)'
+  }}>
+    <Capsule />
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignContent: 'space-between',
+      position: 'relative',
+    }}>
+    {group.map(({name, title, topics, image}, i) => {
+
+      const al = i % 2 === 0 ? (align === 'left' ?'left' : 'right') :(align === 'left' ?'right' : 'left')
+
+      return (<SpeakerCSS
+        key={`speakergroup-${i}`}
+        align={al}
+        name={name}
+        title={title}
+        image={image}
+      />)})}
+    </div>
+  </Slide>)
+})}
+
+
+        <Slide transition={['fade']} bgColor="tertiary">
+          <Heading size={4} caps textColor="primary" textFont="cssHeading" style={{
+            marginBottom: '3rem'
+          }}>
+            10% discount
+          </Heading>
+          <Heading size={1} caps textColor="primary" textFont="heading">
+            { getDiscountCode() }
+          </Heading>
+        </Slide>
+
+
+        <Slide>
+          <Mesh rotate={-100} bottom={'-60%'} left={'-30%'} />
+          <Capsule />
+          <Heading size={1} fit lineHeight={1} textColor="tertiary" textFont="heading">
+            See you in September
+          </Heading>
+          <Heading size={1} lineHeight={2} >
+            👋👋👋
+          </Heading>
+        </Slide>
 
       </Deck>
     );
