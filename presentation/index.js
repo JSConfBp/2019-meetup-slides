@@ -125,6 +125,10 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit lineHeight={1} textColor="tertiary" textFont="heading">
             26-27 September <br />2019
           </Heading>
+
+          <Heading size={4} lineHeight={3} textColor="secondary">
+            Tickets from €311
+          </Heading>
         </Slide>
 
         <Slide transition={['fade']} bgColor="secondary">
@@ -147,6 +151,7 @@ export default class Presentation extends React.Component {
             <ListItem bulletStyle="👷‍♀️">HackerLounge</ListItem>
             <ListItem bulletStyle="🍺">2 parties</ListItem>
             <ListItem bulletStyle="☕️">Barista coffee</ListItem>
+            <ListItem bulletStyle="🥗🍗">Full Vegan catering with opt-in meat!</ListItem>
           </List>
         </Slide>
 
@@ -205,6 +210,11 @@ export default class Presentation extends React.Component {
           </Heading>
           <Heading size={1} caps textColor="primary" textFont="heading">
             { getDiscountCode() }
+          </Heading>
+          <Heading size={4} caps textColor="primary" style={{
+            marginTop: '3rem'
+          }}>
+            <strike>€311</strike> <strong>€279</strong>
           </Heading>
         </Slide>
 
@@ -274,6 +284,11 @@ export default class Presentation extends React.Component {
           </Heading>
           <Heading size={1} caps textColor="primary" textFont="heading">
             { getDiscountCode() }
+          </Heading>
+          <Heading size={4} caps textColor="primary" style={{
+            marginTop: '3rem'
+          }}>
+            <strike>€159</strike> <strong>€143</strong>
           </Heading>
         </Slide>
 
