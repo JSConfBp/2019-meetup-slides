@@ -114,6 +114,10 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit lineHeight={1} textColor="secondary" textFont="heading">
             JSConf Budapest 2019
           </Heading>
+
+          <Heading size={6} lineHeight={3} textColor="tertiary">
+            jsconfbp.com | @jsconfbp
+          </Heading>
         </Slide>
 
         <Slide>
@@ -149,7 +153,9 @@ export default class Presentation extends React.Component {
         <Slide textColor="tertiary">
           <Mesh rotate={-240} bottom={'-60%'} left={'-30%'} />
           <Heading size={1} textColor="secondary" caps textFont="heading">
-            Speakers & topics
+            Speakers<br />
+            &<br />
+            topics
           </Heading>
         </Slide>
 
@@ -271,6 +277,54 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
+        <Slide textColor="tertiary">
+          <Mesh rotate={-240} bottom={'-60%'} left={'-30%'} />
+          <Heading size={1} textColor="secondary" caps textFont="heading">
+            There's still more 😉!
+          </Heading>
+        </Slide>
+
+        <Slide textColor="tertiary">
+          <Mesh rotate={-120} bottom={'60%'} left={'-10%'} />
+          <Heading size={1} textColor="secondary" caps textFont="heading">
+            Free Workshops on Sept 24th!
+          </Heading>
+        </Slide>
+
+        <Slide textColor="tertiary">
+          <Mesh rotate={-290} bottom={'60%'} right={'-30%'} />
+
+          <Heading size={6} textColor="quaternary" textAlign="left">
+            High-Performance Microservices with GraphQL and Apollo by RisingStack
+          </Heading>
+          <Text textSize={'2rem'} textAlign="left" style={{ marginBottom: '2rem' }}>#graphql #apollo</Text>
+
+          <Heading size={6} textColor="quaternary" textAlign="left">
+            Twilio Superclass by Twilio
+          </Heading>
+          <Text textSize={'2rem'} textAlign="left" style={{ marginBottom: '2rem' }}>#voip #sms #messaging #services</Text>
+
+          <Heading size={6} textColor="quaternary" textAlign="left">
+            Integration Driven Development by Unmock.io
+          </Heading>
+          <Text textSize={'2rem'} textAlign="left" style={{ marginBottom: '4rem' }}>#integrations #mocking #testing</Text>
+
+
+          <Text textSize={'1.5rem'} textAlign="left" style={{ marginBottom: '2rem' }}>... and more!</Text>
+        </Slide>
+
+        <Slide textColor="tertiary">
+          <Mesh rotate={-120} bottom={'60%'} left={'-10%'} />
+          <Heading size={4} textColor="tertiary" caps textFont="heading">
+            Workshops are Free
+          </Heading>
+          <Heading size={4} textColor="tertiary" caps textFont="heading">
+            Has limited Seats
+          </Heading>
+          <Heading size={4} textColor="secondary" caps textFont="heading">
+            Get your ticket quickly!
+          </Heading>
+        </Slide>
 
         <Slide>
           <Mesh rotate={-100} bottom={'-60%'} left={'-30%'} />
@@ -280,6 +334,10 @@ export default class Presentation extends React.Component {
           </Heading>
           <Heading size={1} lineHeight={2} >
             👋👋👋
+          </Heading>
+          
+          <Heading size={6} lineHeight={3} textColor="tertiary">
+            jsconfbp.com | @jsconfbp
           </Heading>
         </Slide>
 
