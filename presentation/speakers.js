@@ -178,13 +178,13 @@ export const cssSpeakers = [
 	  topics: '',
 	  image: require('../assets/speakers/mike_riethmuller.jpg'),
 	},
-	{
-	  name: 'Xavier Cazalot',
-		//title: 'The Path to SVG Animations',
-		title: '#svg #animations',
-	  topics: '',
-	  image: require('../assets/speakers/xavier_cazalot.jpg'),
-	},
+	// {
+	//   name: 'Xavier Cazalot',
+	// 	//title: 'The Path to SVG Animations',
+	// 	title: '#svg #animations',
+	//   topics: '',
+	//   image: require('../assets/speakers/xavier_cazalot.jpg'),
+	// },
 	{
 	  name: 'Kathrin Holzmann',
 		//title: 'CSS in JS - beware the Hype!',

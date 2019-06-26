@@ -52,10 +52,10 @@ const jsSpeakerGroups = chunkSpeakers(jsSpeakers);
 const cssSpeakersGroups = chunkSpeakers(cssSpeakers, 3);
 
 jsSpeakerGroups[jsSpeakerGroups.length - 1].push({
-  name: 'Surprise Speaker',
-  title: 'Soon to be announced!',
-  topics: '?',
-  image: require('../assets/speakers/surprise.jpg'),
+  name: 'Surma & Jake Archibald',
+  title: 'HTTP203 Unplugged',
+  topics: '#browsers #features #fun',
+  image: require('../assets/speakers/jake_surma.jpg'),
 })
 
 
@@ -322,8 +322,17 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="quaternary" textAlign="left">
             Integration Driven Development by Unmock.io
           </Heading>
-          <Text textSize={'2rem'} textAlign="left" style={{ marginBottom: '4rem' }}>#integrations #mocking #testing</Text>
+          <Text textSize={'2rem'} textAlign="left" style={{ marginBottom: '2rem' }}>#integrations #mocking #testing</Text>
 
+          <Heading size={6} textColor="quaternary" textAlign="left">
+            Let's jump on the JAMStack hype-train by SuperCharge
+          </Heading>
+          <Text textSize={'2rem'} textAlign="left" style={{ marginBottom: '2rem' }}>#JAMstack #gatsby #headlessCMS</Text>
+
+          <Heading size={6} textColor="quaternary" textAlign="left">
+          Serverless GraphQL with Azure by Microsoft
+          </Heading>
+          <Text textSize={'2rem'} textAlign="left" style={{ marginBottom: '4rem' }}>#serverless #graphql #azure</Text>
 
           <Text textSize={'1.5rem'} textAlign="left" style={{ marginBottom: '2rem' }}>... and more!</Text>
         </Slide>
